@@ -1,44 +1,35 @@
 const express = require("express");
-//* const api = require("./api/index");
-//? is the way below valid ?
-//? || should i use the above
-//? || do either one work ?
+const router = require("express").Router();
 const api = require("./api");
+// const homeR = require("./homeRoutes");
+// const dashBoR = require("./dashboardRoutes");
 
-const homeR = require("./homeRoutes");
-const dashboardR = require("./dashboardRoutes");
+const { User, Post, Comment } = require("../models");
+const sequelize = require("../config/connection.js");
 
 const controller = express.Router();
-// const controller = require("express").Router();
-// const { User, Comment, Post } = require('../models');
-// const format_date = require('../utils/helpers');
 
 controller.use("/api", api);
+// controller.use("/", homeR);
+// controller.use("/dashboard", dashBoR);
 
-controller.use("/", homeR);
-controller.use("/dashboard", dashboardR);
+//!----------
+//This controller GETs the home route ? and then responds by rendering the homepages ?
+// I also chained them, which the 2nd GET, responds by rendering the login page,
+// But if your logged_in then you get the dashboard
+controller
+  .get("/", async (req, res) => {
+    res.render("homepage");
+  })
+  .get("/login", async (req, res) => {
+    if (req.session.logged_in) {
+      res.redirect("/dashboard");
+      return;
+    } else {
+      res.render("login");
+    }
+  });
+//! ----------
 
-//! not sure how to do...yet
-// controller.get('/', async (req, res) => {
-//   try {
-//       const postData = await Post.findAll({
-//           include: [{ model: User }]
-//       });
-//       const posts = postData.map((post) => post.get({ plain: true }));
-//       posts.map((post) => post.date_created = format_date(post.date_created));
-
-//       res.render('all', {
-//           posts,
-//           logged_in: req.session.logged_in
-//       });
-//   } catch (err) {
-//       res.status(500).json(err);
-//   };
-// });
-
-// controller.get('/login', (req, res) => {
-//   res.render('login', {});
-// });
-//!---------
 
 module.exports = controller;

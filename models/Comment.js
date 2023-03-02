@@ -33,6 +33,10 @@ Comment.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    comment_text: {
+      type: DataTypes.TEXT,
+      allowNull: false
+    }
   },
   {
     sequelize,
