@@ -11,11 +11,11 @@ Post.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    title: {
+    p_title: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    content: {
+    p_content: {
       type: DataTypes.TEXT,
       allowNull: false,
     },
@@ -37,8 +37,11 @@ Post.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "Post",
+    modelName: "post",
   }
 );
 
 module.exports = Post;
+
+
+

@@ -1,5 +1,4 @@
-{{!-- ! WE HAVE TO FILL IN NECESSARY CODE etc
-<!-- Pills navs -->
+ <!-- Pills navs -->
 <section class="container w-50 mt-5">
     <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
     <li class="nav-item" role="presentation">
@@ -23,7 +22,7 @@
         role="tab"
         aria-controls="pills-register"
         aria-selected="false"
-        >Register</a
+        >Sign Up</a
         >
     </li>
     </ul>
@@ -36,65 +35,71 @@
 
         <!-- Email input -->
         <div class="form-outline mb-4">
-            <input type="email" id="loginName" class="form-control" />
-            <label class="form-label" for="loginName">Email</label>
+            <input type="email" id="emailLogin" class="form-control" />
+            <label class="form-label" for="emailLogin">Email</label>
         </div>
 
         <!-- Password input -->
         <div class="form-outline mb-4">
-            <input type="password" id="loginPassword" class="form-control" />
-            <label class="form-label" for="loginPassword">Password</label>
+            <input type="password" id="passwordLogin" class="form-control" />
+            <label class="form-label" for="passwordLogin">Password</label>
         </div>
 
         <!-- Submit button -->
-        <button id="loginFormBtn" type="button" class="btn btn-primary btn-block mb-3">Sign in</button>
+        <button id="loginFormBtn" type="button" class='btn btn-outline-dark btn-block mb-3 no-button
+              shadow-pop-bottom-right
+              '
+              data-mdb-ripple-color='dark'
+        >Sign In</button>
 
         </form>
     </div>
+
+
+
     <div class="tab-pane fade" id="pills-register" role="tabpanel" aria-labelledby="tab-register">
-        <form id="registerForm">
+        <form id="signupForm">
 
         <!-- Name input -->
         <div class="form-outline mb-4">
-            <input type="text" id="registerFirstName" class="form-control" required />
-            <label class="form-label" for="registerFirstName">First Name</label>
+            <input type="text" id="regFirstName" class="form-control" required />
+            <label class="form-label" for="regFirstName">First Name</label>
         </div>
 
         <!-- Username input -->
         <div class="form-outline mb-4">
-            <input type="text" id="registerLastName" class="form-control" required />
-            <label class="form-label" for="registerLastName">Last Name</label>
+            <input type="text" id="regLastName" class="form-control" required />
+            <label class="form-label" for="regLastName">Last Name</label>
         </div>
 
         <!-- Email input -->
         <div class="form-outline mb-4">
-            <input type="email" id="registerEmail" class="form-control" required />
-            <label class="form-label" for="registerEmail">Email</label>
+            <input type="email" id="regEmail" class="form-control" required />
+            <label class="form-label" for="regEmail">Email</label>
         </div>
 
         <!-- Password input -->
         <div class="form-outline mb-4">
-            <input type="password" id="registerPassword" class="form-control" required />
-            <label class="form-label" for="registerPassword">Password</label>
+            <input type="password" id="regPassword" class="form-control" required />
+            <label class="form-label" for="regPassword">Password</label>
         </div>
 
         <!-- Repeat Password input -->
         <div class="form-outline mb-4">
-            <input type="password" id="registerRepeatPassword" class="form-control" required />
-            <label class="form-label" for="registerRepeatPassword">Repeat password</label>
+            <input type="password" id="regRepPassword" class="form-control" required />
+            <label class="form-label" for="regRepPassword">Repeat password</label>
         </div>
 
         <!-- Submit button -->
-        <button id="registerBtn" type="button" class='btn btn-outline-dark btn-rounded no-button
+        <button id="registerBtn" type="button" class='btn btn-outline-dark btn-block mb-3 no-button
               shadow-pop-bottom-right
               '
-              data-mdb-ripple-color='dark'>Sign in</button>
-        
+              data-mdb-ripple-color='dark'>Submit</button>
         </form>
     </div>
     </div>
     <!-- Pills content -->
 </section>
 
-<script src="/js/register.js"></script>
-<script src="/js/login.js"></script> --}}
+<script src="../public/js/logIn.js"></script>
+<script src="../public/js/signUp.js"></script>

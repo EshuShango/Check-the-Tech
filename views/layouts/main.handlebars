@@ -70,27 +70,41 @@
 
       <div class='container-fluid'>
         <nav class='navbar navbar-light bg-light flex-column flex-sm-row'>
+          
           <a href="/" class='navbar-brand ps-3'>✅ the Tech</a>
+            {{!-- <a
+                  href='/dashboard'
+                  class='navbar-brand nav  mb-2 '
+                >Dashboard</a> --}}
+  
+        
+
           {{#if logged_in}}
-            if loggedIn we do something etc 
+            {{!-- if loggedIn we do something etc  --}}
+            <a href="/dashboard">Dashboard</a>
+            
              <button
-              id='logBtn'
-              type='button'
+              id='logoutBtn'
               class='btn btn-outline-dark btn-rounded no-button
               shadow-pop-bottom-right
               '
               data-mdb-ripple-color='dark'
             >Logout</button>
+            
           {{else}}
+          <a href="/login" 
             <button
-              id='logBtn'
+              id='loginBtn'
               type='button'
               class='btn btn-outline-dark btn-rounded no-button
               shadow-pop-bottom-right
               '
               data-mdb-ripple-color='dark'
             >Login</button>
+          </a>
           {{/if}}
+
+        
         </nav>
       </div>
     </header>
@@ -106,11 +120,11 @@
 
 
     <!-- Render script for logged in users only -->
-    {{!-- {{#if logged_in}}
-      <script src='/js/logout.js'></script>
+    {{#if logged_in}}
+      <script src='../../public/js/logOut.js'></script>
     {{else}}
-      <script src='/js/home.js'></script>
-    {{/if}} --}}
+     <script src='../../public/home.js'></script>
+    {{/if}}
     <!-- MDB -->
     <script
       type='text/javascript'
