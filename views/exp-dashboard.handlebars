@@ -1,0 +1,251 @@
+{{!-- <main class='row'>
+
+  <div class='col-sm-8'>
+    <section class='intro' style=' height:100%'>
+
+      <div class='container align-items-center'>
+        <div>
+          <div class='row justify-content-center '>
+         
+              <div class='card  col-9 mt-4 shadow-3-soft ' 
+              style='position: relative; height: 500px; border-radius: .5rem;'
+              >
+
+                <div class='card-body p-0 '
+                      
+                >
+                      
+                  <div
+                    class=' table-responsive table-scroll table table-hover shadow-1'
+                    data-mdb-perfect-scrollbar='true' 
+                    style='position: relative; height: 500px; border-radius: .5rem;'
+                  >
+                    <table
+                      class='
+                      table table-dark mb-0 
+                      table-hover'
+                      style='text-overflow: ellipsis;
+                  white-space: nowrap;
+                  overflow: hidden;'
+                    >
+
+                      <thead
+                        style='background-color: #393939; text-overflow: 
+                    ellipsis; top: 0;
+                    position: sticky;'
+                      >
+
+                        <tr class='text-uppercase text-light'>
+                          <th scope='col'>Study Group</th>
+                          <th scope='col'>Topic</th>
+                          <th scope='col'>Date</th>
+                          <th scope='col'>Time</th>
+                        </tr>
+                      </thead>
+
+                      <tbody >
+                        
+                      {{#each groups as |group|}}
+                      <tr class='stygrp-card'>
+                          <td class="grp-name"><a href='/resources/{{group.id}}'>{{group.name}}</a></td>
+                          <td class="grp-topic">{{group.subject}}</td>
+                          <td class="sty-date">{{group.date}}</td>
+                          <td class="sty-time">{{group.time}}</td>
+                        </tr>
+                      {{/each}}
+
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+  </div>
+
+  <div
+    class='col-sm-4 w-25 p-3 m-3 mr-5'
+    {{!-- style='background-color:blue; border-radius: 15px' --}}
+  >
+    <!-- Button trigger modal -->
+    <button
+      type='button'
+       id='create-btn'
+      class='btn btn-dark btn-block no-button btn-primary btn-lg   
+      active text-white bg-dark mb-3
+      {{!-- shadow-pop-bottom-left  --}}
+      shadow-pop-top-right
+      {{!-- rotate-bottom --}}
+      '
+      data-mdb-toggle='modal'
+      data-mdb-target='#exampleModal'
+    >
+      Create Study Group
+    </button>
+
+    <!-- Modal -->
+    <div
+      class='modal fade'
+      id='exampleModal'
+      tabindex='-1'
+      aria-labelledby='exampleModalLabel'
+      aria-hidden='true'
+      data-mdb-backdrop='static'
+      data-mdb-keyboard='false'
+    >
+
+      <div
+        class='modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg'
+      >
+        <div class='modal-content'>
+          <div class='modal-header'>
+            <h5 class='modal-title' id='exampleModalLabel'>
+              Create Study Group
+            </h5>
+            <button
+              type='button'
+              class='btn-close'
+              data-mdb-dismiss='modal'
+              aria-label='Close'
+            >
+            </button>
+          </div>
+
+          <!-- Modal BODY BEGIN-->
+          <div class='modal-body'>
+
+            <form class='form-outline
+            ' 
+            style="margin-top: 20px;">
+              <input
+                type='text'
+                id='formname'
+                class='form-control 
+                form-control-lg 
+                 grpname
+                '
+                data-mdb-showcounter="true" 
+                maxlength="20"
+                required
+              />
+              <label class='form-label needs-validation' 
+              for='validationDefault01' >Group Name
+              </label>
+              <div class="form-helper"></div>
+            </form>
+
+            <form class='form-outline' style="margin-top: 20px;">
+              <input
+                type='text'
+                id='formsubject'
+                class='form-control form-control-lg 
+                topic
+                '
+                data-mdb-showcounter="true" 
+                maxlength="20"
+                required
+              />
+              <label class='form-label needs-validation' 
+              for="validationDefault02" >Topic
+              </label>
+              <div class="form-helper "></div>
+              <div class="invalid-feedback">
+                Please choose a username.
+              </div>
+            </form>
+
+          <!-- DATE PICKER BEGIN-->
+              <form action="#" class='form-outline' 
+              style="margin-top: 20px;">
+                <label class='form-label needs-validation'
+                       style="margin-left: 20px;">
+                       Select Date:
+
+                  <div id="datepicker" class="input-group date needs-validation" 
+                  data-date-format="yyyy-mm-dd" 
+                    >
+                    <input
+                      type="date"
+                      class="form-control" 
+                      id="formdate" 
+                      placeholder="Select date" 
+                      name="study group date"
+                      min="2023-01-1"
+                      max="2023-02-28"
+                      required/> 
+                      <span class="validity"></span>
+                  </label>
+                </div>
+              </form> 
+
+          <!-- TIME PICKER BEGIN-->  
+              <form action="#" class='form-outline ' 
+              style="margin-top: 20px;";>
+                  <label class='form-label needs-validation' 
+                         style="margin-left: 20px;"
+                         for='validationDefault03'>
+                         Select a Time:
+                  
+                <div id="timepicker" class="input-group time needs-validation" 
+                  data-time-format="h:mm"    
+                  >
+                  <input
+                      type="time"
+                      class="form-control" 
+                      id="formtime" 
+                      placeholder="Select time" 
+                      name="study group time"
+                      min="23"
+                      max="01"
+                      required
+                      pattern="[9]{2}:[0-9]{2}" /> 
+                      <span class="validity"></span>
+                 </label>
+                </div>
+              </form>
+
+          <!-- Modal BODY END-->
+
+          <div class='modal-footer mb-3 ' 
+               {{!-- style="margin-left:20px; " --}}
+          >
+
+            <button
+              type='button'
+              class='btn btn-secondary
+              no-button
+              '
+              data-mdb-dismiss='modal'
+              >
+              Close
+            </button>
+
+            <button 
+              id='create-group'
+              type='submit'
+              class='btn btn-primary no-button
+              shadow-pop-top-left
+              '
+              value="Save changes"
+              >
+              Save changes
+            </button>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</form>
+
+</main>
+
+<script src='/js/post.js'></script> --}}

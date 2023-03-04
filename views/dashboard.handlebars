@@ -1,16 +1,134 @@
-  <header>
-  <!-- Navbar -->
- 
-  <!-- Navbar -->
 
-  <!-- Jumbotron -->
-  <div class="p-5 text-center bg-light">
-    <h1 class="mb-3">Heading</h1>
-    <h4 class="mb-3">Subheading</h4>
-    <a class="btn btn-outline-dark btn-round mb-3 no-button
+
+<!-- Button trigger modal -->
+
+  <div class="row">
+    <a class="btn btn-outline-dark btn-round mb-1 no-button
               shadow-pop-bottom-left
-              '
-              data-mdb-ripple-color='dark'>Submit" href="" role="button">Create a Post</a>
+              data-mdb-ripple-color='dark' "
+               data-mdb-toggle='modal'
+      data-mdb-target='#exampleModal'
+              {{!-- data-mdb-toggle="modal" data-mdb-target="#staticBackdrop" --}}
+               href="" role="button">Create a Post</a>
   </div>
-  <!-- Jumbotron -->
-</header>
+
+
+    <!-- Modal -->
+  <form class="formoutline"aria-label="Edit post">
+    <div
+      class='modal fade'
+      id='exampleModal'
+      tabindex='-1'
+      aria-labelledby='exampleModalLabel'
+      aria-hidden='true'
+      data-mdb-backdrop='static'
+      data-mdb-keyboard='false'
+    >
+
+      <div
+        class='modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg'
+      >
+        <div class='modal-content'>
+          <div class='modal-header'>
+            <h5 class='modal-title' id='exampleModalLabel'>
+              Create a Post
+            </h5>
+            <button
+              type='button'
+              class='btn-close'
+              data-mdb-dismiss='modal'
+              aria-label='Close'
+            >
+            </button>
+          </div>
+
+          <!-- Modal BODY BEGIN-->
+          <div class='modal-body'>
+
+            {{!-- <form class='form-outline' > --}}
+            <div class="post-title row">
+
+            {{!-- <div class="col-6">
+                <h2 class="title"><a href='/api/dashboard/edit/{{post.id}}'>{{post.title}}</a></h2>
+            </div> --}}
+           
+              <a href='/api/dashboard/edit/{{post.id}}'>
+              <label class='form-label needs-validation' 
+              for='validationDefault01' >
+              
+              {{p_title}}
+              
+              </label>
+              </a>
+              <input
+                type='text'
+                id='formname'
+                placeholder="New Post Title" 
+                class='form-control 
+                form-control-lg'
+                data-mdb-showcounter="true" 
+                maxlength="20"
+                required
+              />
+
+              <div  style="border: 1px solid red ;"
+              {{!-- class='form-control form-control-lg topic form-helper' --}}
+               >
+             
+              <div class="" style="align-items: center ;">
+
+              <textarea style="max-width 25rem; width:29.2rem;"
+               placeholder="Write post content here..." 
+              {{!-- placeholder="Write your post content here..." 
+              class="crayons-textfield crayons-textfield--ghost crayons-article-form__body__field ff-monospace fs-l h-100" 
+              id='formsubject'  --}}
+              {{!-- data-gramm_editor="false"  --}}
+              {{!-- style="min-height: 25rem; max-width:fit-content" --}}
+              required
+              >
+              {{p_content}}
+              </textarea>
+              </div>
+              
+              </div>
+          
+          
+          <!-- Modal BODY END-->
+
+          <div class='modal-footer mb-3 ' 
+          
+          >
+
+            <button
+              type='button'
+              class='btn btn-secondary
+              no-button
+              '
+              data-mdb-dismiss='modal'
+              >
+              Close
+            </button>
+
+            <button 
+              id='create-group'
+              type='submit'
+              class='btn btn-primary no-button
+              shadow-pop-top-left
+              '
+              value="Save changes"
+              >
+              Save changes
+            </button>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+ </form>
+  
+  </div>
+
+
+ 
+

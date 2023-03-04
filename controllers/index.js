@@ -1,35 +1,65 @@
 const express = require("express");
-const router = require("express").Router();
 const api = require("./api");
-// const homeR = require("./homeRoutes");
-// const dashBoR = require("./dashboardRoutes");
-
 const { User, Post, Comment } = require("../models");
-const sequelize = require("../config/connection.js");
+const auth = require("../utils/auth");
+const formatDate = require("../utils/helpers");
 
 const controller = express.Router();
-
 controller.use("/api", api);
-// controller.use("/", homeR);
-// controller.use("/dashboard", dashBoR);
-
 //!----------
-//This controller GETs the home route ? and then responds by rendering the homepages ?
-// I also chained them, which the 2nd GET, responds by rendering the login page,
+// This controller GETs the home route
+// Then responds by rendering the homepage
+//* I chained them, it seems to work 
+// Then the 2nd GET,responds by rendering the login page,
 // But if your logged_in then you get the dashboard
 controller
   .get("/", async (req, res) => {
+    //!---
+    //   try {
+    //     const postData = await Post.findAll({
+    //         include: [{ model: User }]
+    //     });
+    //     const posts = postData.map((post) => post.get({ plain: true }));
+    //     posts.map((post) => post.date_created = formatDate(post.date_created));
+
+    //     res.render('all', {
+    //         posts,
+    //         logged_in: req.session.logged_in
+    //     });
+    // } catch (err) {
+    //     res.status(500).json(err);
+    // };
+
+    //!---
     res.render("homepage");
+  })
+  .get("/dashboard", auth, async (req, res) => {
+    res.render("dashboard", {
+      logged_in: req.session.logged_in,
+    });
   })
   .get("/login", async (req, res) => {
     if (req.session.logged_in) {
-      res.redirect("/dashboard");
+      res.status(302).redirect("dashboard");
       return;
     } else {
       res.render("login");
     }
+  })
+  .get("/signup", async (req, res) => {
+    if (req.session.logged_in) {
+      res.status(302).redirect("dashboard");
+      return;
+    } else {
+      res.render("signup");
+    }
   });
-//! ----------
 
+//? controller.delete("/logout", async (req, res) => {
+//   if (req.session.logged_in) {
+
+//   }
+//? })
+//! ----------
 
 module.exports = controller;

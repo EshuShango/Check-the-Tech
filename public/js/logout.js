@@ -1,16 +1,22 @@
+const logoutBtn = document.getElementById("logoutBtn");
+
 const logout = async () => {
-  // Make a POST request to destroy the session on the back end
-  const response = await fetch('/api/users/logout', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+  console.log("HELLO");
+  // i want to destroy the session on the back end
+  //so that user has to log back in
+  const response = await fetch("/api/user/logout", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
   });
 
   if (response.ok) {
-    // If successfully logged out, redirect to the login page
-    document.location.replace('/login');
+    // this redircts to the home page
+    document.location.replace("/");
   } else {
     alert(response.statusText);
   }
 };
 
-document.querySelector('#logout').addEventListener('click', logout);
+logoutBtn.addEventListener("click", logout);
+
+//! ------

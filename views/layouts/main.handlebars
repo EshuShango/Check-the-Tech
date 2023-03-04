@@ -1,132 +1,167 @@
-<html lang='en'>
+<html lang="en">
   <head>
     <title>✅ the Tech</title>
     <!-- Required meta tags -->
-    <meta charset='utf-8' />
+    <meta charset="utf-8" />
     <meta
-      name='viewport'
-      content='width=device-width, initial-scale=1, shrink-to-fit=no'
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-  
+
     <!--day.JS -->
-    <script src='https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
     <!--MDB (BS on steriods !)-->
     <script
-      type='text/javascript'
-      src='https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.js'
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.js"
     ></script>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script
-      src='https://code.jquery.com/jquery-3.3.1.slim.min.js'
-      integrity='sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo'
-      crossorigin='anonymous'
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
     ></script>
     <script
-      src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js'
-      integrity='sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1'
-      crossorigin='anonymous'
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
     ></script>
     <!-- (MDB) Bootstrap CSS -->
-    <link rel='stylesheet' href='/css/style.css' />
-    
-     {{!-- <link rel="stylesheet" href="../../public/css/jass.css" />  --}}
+    <link rel="stylesheet" href="/css/style.css" />
+
+    {{! <link rel="stylesheet" href="../../public/css/jass.css" />  }}
 
     <!-- Font Awesome -->
     <link
-      href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css'
-      rel='stylesheet'
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
     />
     <script
-      src='https://kit.fontawesome.com/8c87e93458.js'
-      crossorigin='anonymous'
+      src="https://kit.fontawesome.com/8c87e93458.js"
+      crossorigin="anonymous"
     ></script>
     <!--scripts for videochat-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+      integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
     <script src="//cdn.metered.ca/sdk/video/1.4.5/sdk.min.js"></script>
     <!--scripts for videochat-->
     <link
-      rel='stylesheet'
-      href='https://use.fontawesome.com/releases/v5.3.1/css/all.css'
-      integrity='sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU'
-      crossorigin='anonymous'
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+      integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+      crossorigin="anonymous"
     />
 
     <!-- Google Fonts -->
     <link
-      href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap'
-      rel='stylesheet'
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+      rel="stylesheet"
     />
     <!-- MDB -->
     <link
-      href='https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css'
-      rel='stylesheet'
+      href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css"
+      rel="stylesheet"
     />
   </head>
 
   <body>
     <header>
 
-      <div class='container-fluid'>
-        <nav class='navbar navbar-light bg-light flex-column flex-sm-row'>
-          
-          <a href="/" class='navbar-brand ps-3'>✅ the Tech</a>
-            {{!-- <a
-                  href='/dashboard'
-                  class='navbar-brand nav  mb-2 '
-                >Dashboard</a> --}}
-  
-        
+      <div class="container-fluid">
+        <!-- Nav BEGIN-->
+        <nav class="navbar navbar-light bg-light flex-column flex-sm-row">
+          <a href="/" class="navbar-brand ps-3">✅ the Tech</a>
+          <div class="">
+            <div class="d-flex align-items-center">
+              <!-- Left links -->
+              <ul class="navbar-nav me-5 start-center">
+                <li class="nav-item">
+                  <a class="nav-link" href="/dashboard">Dashboard</a>
+                </li>
+              </ul>
+              <!-- Left links -->
+              <a
+                class="btn btn-primary btn-dark btn- px-3 me-5"
+                href="https://github.com/EshuShango"
+                target="_blank"
+                role="button"
+              ><i class="fab fa-github"></i></a>
 
-          {{#if logged_in}}
-            {{!-- if loggedIn we do something etc  --}}
-            <a href="/dashboard">Dashboard</a>
+              {{#if logged_in}}
+                {{! if loggedIn we do something etc  }}
             
-             <button
-              id='logoutBtn'
-              class='btn btn-outline-dark btn-rounded no-button
-              shadow-pop-bottom-right
-              '
-              data-mdb-ripple-color='dark'
-            >Logout</button>
-            
-          {{else}}
-          <a href="/login" 
-            <button
-              id='loginBtn'
-              type='button'
-              class='btn btn-outline-dark btn-rounded no-button
-              shadow-pop-bottom-right
-              '
-              data-mdb-ripple-color='dark'
-            >Login</button>
-          </a>
-          {{/if}}
+                 <a class="nav-link"
+                 href="/">
+                <button
+                  id="logoutBtn"
+                  class="btn btn-outline-dark btn-rounded no-button shadow-pop-bottom-right"
+                  data-mdb-ripple-color="dark"
+                >Logout</button>
+                </a>
+              {{else }}
+              <div class="d-flex align-items-center">
+                <ul class="navbar-nav me-5 start-center">
+                  <li class="nav-item">
 
-        
+                  <a class="nav-link"
+                  href="/login">
+                  <button
+                    id="loginBtn"
+                    type="button"
+                    class="btn btn-outline-dark ml-5 btn-rounded no-button shadow-pop-bottom-right"
+                    data-mdb-ripple-color="dark"
+                  >Login</button>
+                </a>
+                  </li>
+                  
+                  <li class="nav-item">
+                    
+                <a class="nav-link"
+                href="/signup">
+                  <button
+                    id="loginBtn"
+                    type="button"
+                    class="btn btn-outline-dark ml-5 btn-rounded no-button shadow-pop-bottom-right"
+                    data-mdb-ripple-color="dark"
+                  >Sign up</button>
+                </a>
+                  </li>
+                </ul>
+              </div>
+              {{/if}}
+            </div>
+          </div>
         </nav>
-      </div>
+        <!-- Nav END -->
     </header>
 
-    
-      <!-- Render the sub layout -->
-      {{{body}}}
-   
+    <!-- Render the sub layout -->
+    {{{body}}}
 
-    <footer>
-
+     <footer>
     </footer>
-
+      </div>
 
     <!-- Render script for logged in users only -->
     {{#if logged_in}}
-      <script src='../../public/js/logOut.js'></script>
-    {{else}}
-     <script src='../../public/home.js'></script>
+      <script src="js/logOut.js"></script>
+      {{else}}
+        {{!-- <script src=""></script> --}}
     {{/if}}
     <!-- MDB -->
     <script
-      type='text/javascript'
-      src='https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.js'
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.js"
     ></script>
+  </body>
+</html>
