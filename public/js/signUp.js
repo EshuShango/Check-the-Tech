@@ -1,98 +1,85 @@
-const signUp = async (e) => {
+// const userName = document.getElementById("regUserName").value.trim();
+// const regEmail = document.getElementById("regEmail").value.trim();
+// const regPwEl = document.getElementById("regPassword").value.trim();
+// const repPwEl = document.getElementById("repPassword").value.trim();
+
+
+const fullName = document.getElementById("fullName");
+const userName = document.getElementById("regUserName");
+const regEmail = document.getElementById("regEmail");
+const regPwEl = document.getElementById("regPassword");
+const repPwEl = document.getElementById("repPassword");
+
+
+// function checkPasswords(e) {
+  //   console.log(e.target);
+  //   e.stopPropagation();
+  //   e.preventDefault();
+  //   if (registerPasswordField.value !== confirmPasswordField.value) {
+    //     confirmPasswordField.setCustomValidity("Passwords do not match");
+    //   } else {
+      //     registerUser();
+      //   }
+      // }
+      
+      //^ const signupForm = document.getElementById("registerBtn").value;
+
+function checkPasswords(e) {
+  console.log(e.target);
+  e.stopPropagation();
   e.preventDefault();
-
-  const firstName = document.getElementById("regFirstName").value.trim();
-  const lastName = document.getElementById("regLastName").value.trim();
-  const regEmail = document.getElementById("regEmail").value.trim();
-  const regPwEl = document.getElementById("regPassword").value.trim();
-  const repPwEl = document.getElementById("regRepPassword").value.trim();
-
-  //!----SignUp 
-
-  const username = signupUsername.value;
-  const password = signupPassword.value;
-  
-  if (password.length >= 8) {
-    const userObj = {
-        username: username,
-        password: password
-    };
-
-    const response = await fetch('/api/users/', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(userObj)
-    });
-
-    if (response.status === 200) {
-        signupStatus.textContent = 'User created';
-        document.location.replace('/');
-    } else {
-        signupStatus.textContent = 'Could not create user';
-    };
-} else {
-    signupStatus.textContent = 'Password must be at least 8 characters!';
-};
-  //! -----
-
-  if (firstName && lastName && email && password) {
-    const response = await fetch("/api/user", {
-      method: "POST",
-      body: JSON.stringify({ firstName, lastName, regEmail, regPwEl, repPwEl }),
-      headers: { "Content-Type": "application/json" },
-    });
-
-    response.ok
-      ? document.location.replace("/dashboard")
-      : alert(response.statusText);
+  if (regPwEl.value !== repPwEl.value) {
+    return false
+    // repPwEl.setCustomValidity("Passwords do not match");
+  } else {
+    // signupFormSubmission();
+    return true
   }
-};
-
-document
-  .getElementById(".login-form")
-  .addEventListener("submit", loginFormHandler);
-
-document
-  .getElementById(".signupForm")
-  .addEventListener("submit", signUp);
+}
 
 
-
-  //! How to implement signing up 
-
-async function signup(e) {
+const signupFormSubmission = async (e) => {
   e.preventDefault();
   e.stopPropagation();
+  console.log("Hey there");
+  
+  const passwordsOk = checkPasswords(e)
+  if( !passwordsOk ) return console.log("bad passwords")
 
-  const username = signupUsername.value;
-  const password = signupPassword.value;
+  if (fullName.value && userName.value && regEmail.value && regPwEl.value && repPwEl.value) {
+    console.log(fullName);
+    const userObj = {
+      fullname: fullName.value.trim(),
+      username: userName.value,
+      email: regEmail.value,
+      password: regPwEl.value,
+      repeatPW: repPwEl.value,
+    };
+    // Send a POST request for userApi, right ?
+    const response = await fetch("/api/user/signup", {
+      method: "POST",
+      body: JSON.stringify(userObj),
+      headers: { "Content-Type": "application/json" },
+    });
+    // console.log("response", response);
+    if (response.ok) {
+      // If successful, redirect the browser to the profile page
+      document.location.replace("/dashboard");
+    } else {
+      alert("hey now");
+      alert(response.statusText);
+    }
+  }
+}
 
-  if (password.length >= 8) {
-      const userObj = {
-          username: username,
-          password: password
-      };
+document
+  .getElementById("registerBtn")
+  .addEventListener("click", signupFormSubmission);
 
-      const response = await fetch('/api/users/', {
-          method: 'POST',
-          headers: {
-              'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(userObj)
-      });
+//   //!----SignUp
 
-      if (response.status === 200) {
-          signupStatus.textContent = 'User created';
-          document.location.replace('/');
-      } else {
-          signupStatus.textContent = 'Could not create user';
-      };
-  } else {
-      signupStatus.textContent = 'Password must be at least 8 characters!';
-  };
-};
+//   //! -----
 
-  //! ---------
+//! How to implement signing up
 
+//! ---------

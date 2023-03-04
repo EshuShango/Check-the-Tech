@@ -40,9 +40,27 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use(session(sess));
+
 //*controllers are routes
 app.use(controllers);
+
+//?---------
+//? is there a way to make this work automatically ?
+//? as in can we write a program/block of code to handle
+//? if database needs to be upd then it can search the database
+//? then tell if it needs an update and then do just that ?
+//?---------
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log(`Now listening ${PORT}`));
 });
+
+
+/*
+  In workbench: drop the database and create a new one
+  CREATE DATABASE "aaaa"
+
+  Launch the server file
+  After the server file launches, set force to false 
+  Run the seeder
+*/

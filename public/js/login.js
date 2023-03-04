@@ -1,52 +1,38 @@
-const loginFormHandler = async (e) => {
-  e.preventDefault();
+const logFormBtn = document.getElementById("loginFormBtn");
+//? can i make it so you can press the btn and ENTER key ?
 
-  // Collect values from the login form
-  const logEmail = document.getElementById("emailLogin").value.trim();
-  const logPwEl = document.getElementById("passwordLogin").value.trim();
+const userName = document.getElementById("logUserName");
+const logEmail = document.getElementById("logEmail");
+const PwEl = document.getElementById("logPassword");
 
-  if (logEmail && logPwEl) {
-    // Send a POST request to the API endpoint
-    const response = await fetch("/api/user/login", {
-      method: "POST",
-      body: JSON.stringify({ email, password }),
-      headers: { "Content-Type": "application/json" },
-    });
-
-    // If successful, redirect the browser to the profile page
-    response.ok
-      ? document.location.replace("/")
-      : alert(response.statusText);
-  }
-};
-
-
-
-const loginFormBtn = document.getElementById('loginFormBtn');
-const usernameField = document.getElementById('loginName');
-const loginPasswordField = document.getElementById('loginPassword');
-
-async function login(e) {
+const login = async (e) => {
+  console.log("WTF");
   console.log(e.target);
-  e.stopPropagation();
   e.preventDefault();
-
-  const obj = {
-    username: usernameField.value,
-    password: loginPasswordField.value,
+  // e.stopPropagation();
+  const userObj = {
+    username: userName.value.trim(),
+    email: logEmail.value.trim(),
+    password: PwEl.value.trim(),
   };
 
-  const response = await fetch('/api/user/login', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(obj),
-  });
+  //? why is the if statement not working ?
+  // if (userObj.email && userObj.password) {
+    const response = await fetch("/api/user/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(userObj),
+    });
 
-  if (response.ok) {
-    document.location.replace('/');
-  } else {
-    usernameField.setCustomValidity('Invalid username or password');
-  }
-}
+    if (response.ok) {
+      console.log("user logged in !");
+      alert("Your logged in !");
+      document.location.replace("/dashboard");
+    } else {
+      email.setCustomValidity("Invalid username or password");
+      alert(response.statusText);
+    }
+  //? }
+};
 
-loginFormBtn.addEventListener('click', login);
+logFormBtn.addEventListener("click", login);
