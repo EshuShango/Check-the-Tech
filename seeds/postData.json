@@ -1,17 +1,17 @@
 [
   {
-      "title": "Test Post",
-      "content": "YDKJS learning and learning",
+    "p_title": "Test Post",
+      "p_content":"YDKJS learning and learning",
       "user_id": 1
   },
   {
-      "title": "Test Post 2",
-      "content": "What I think about this ....OMG !!!!!",
+    "p_title": "Test Post 2",
+      "p_content": "What I think about this ....OMG !!!!!",
       "user_id": 2
   },
   {
-      "title": "Test Post 2",
-      "content": "Oh how could you do me so wrong !!!",
+      "p_title": "Test Post 2",
+      "p_content": "Oh how could you do me so wrong !!!",
       "user_id": 3
   }
 ]

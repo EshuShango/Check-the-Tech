@@ -32,10 +32,6 @@ Comment.init(
     comment_content: {
       type: DataTypes.STRING,
       allowNull: false,
-    },
-    comment_text: {
-      type: DataTypes.TEXT,
-      allowNull: false
     }
   },
   {

@@ -29,9 +29,9 @@ const login = async (e) => {
       alert("Your logged in !");
       document.location.replace("/dashboard");
     } else {
-      email.setCustomValidity("Invalid username or password");
+    //  userObj.email.setCustomValidity("Invalid username or password");
       alert(response.statusText);
-    }
+  }
   //? }
 };
 

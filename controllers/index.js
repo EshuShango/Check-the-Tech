@@ -1,43 +1,80 @@
 const express = require("express");
 const api = require("./api");
+const dashBoApi = require("./dashboard.js");
 const { User, Post, Comment } = require("../models");
 const auth = require("../utils/auth");
-const formatDate = require("../utils/helpers");
+const { formatDate } = require("../utils/helpers");
 
 const controller = express.Router();
+
 controller.use("/api", api);
-//!----------
-// This controller GETs the home route
-// Then responds by rendering the homepage
-//* I chained them, it seems to work 
-// Then the 2nd GET,responds by rendering the login page,
-// But if your logged_in then you get the dashboard
+controller.use("/dashboard", dashBoApi);
+
 controller
   .get("/", async (req, res) => {
-    //!---
-    //   try {
-    //     const postData = await Post.findAll({
-    //         include: [{ model: User }]
-    //     });
-    //     const posts = postData.map((post) => post.get({ plain: true }));
-    //     posts.map((post) => post.date_created = formatDate(post.date_created));
+    let postData;
 
-    //     res.render('all', {
-    //         posts,
-    //         logged_in: req.session.logged_in
-    //     });
-    // } catch (err) {
-    //     res.status(500).json(err);
-    // };
+    try {
+      postData = await Post.findAll({
+        include: [{ model: User }],
+      });
+    } catch (err) {
+      console.log(err.message);
+      res.status(500).json(err);
+    }
 
-    //!---
-    res.render("homepage");
-  })
-  .get("/dashboard", auth, async (req, res) => {
-    res.render("dashboard", {
+    let posts = postData.map((post) => post.get({ plain: true }));
+    console.log("HEY!!!!!!")
+
+    // posts = posts.map((post) => (post.date_created = formatDate(post.date_created)));
+
+    res.render("homepage", {
+      posts,
       logged_in: req.session.logged_in,
     });
   })
+  
+  // .get("/dashboard", auth, async (req, res) => {
+  //   console.log("dashboard page");
+
+  //   let postData;
+  //   try {
+  //     postData = await Post.findAll({
+  //       include: [{ model: User }],
+  //       // where: {
+  //       //   user_id: req.session.user_id,
+  //       // },
+  //     });
+  //     //turns sequelize into plain js code
+  //     const posts = postData.map((post) => post.get({ plain: true }));
+  //     console.log(posts)
+  //     res.render("dashboard", {
+  //       posts,
+  //       logged_in: req.session.logged_in,
+  //     });
+  //   } catch (err) {
+  //     console.log(err.message);
+  //     res.status(500).json(err);
+  //   }
+
+  //   // posts = posts.map((post) => (post.date_created = formatDate(post.date_created)));
+  // })
+
+  // .get("/dashboard/edit/:id", async (req, res) => {
+  //   try {
+  //     const postData = await Post.findByPk(req.params.id);
+  //     const post = postData.get({ plain: true });
+  //     post.date_created = format_date(post.date_created);
+  //     res.render("singlepost", {
+  //       post,
+  //       logged_in: req.session.logged_in,
+  //       s,
+  //     });
+  //   } catch (err) {
+  //     res.status(500).json(err);
+  //   }
+  // })
+
   .get("/login", async (req, res) => {
     if (req.session.logged_in) {
       res.status(302).redirect("dashboard");

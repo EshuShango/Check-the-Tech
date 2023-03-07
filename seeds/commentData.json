@@ -1,18 +1,17 @@
-
 [
   {
-      "comment_text": "Well, well you looking mighty Swell !",
-      "user_id": 1,
-      "post_id": 1
+    "comment_content": "Well, well you looking mighty Swell !",
+    "user_id": 1,
+    "post_id": 1
   },
   {
-      "comment_text": "Enough is enough!",
-      "user_id": 2,
-      "post_id": 2
+    "comment_content ": "Enough is enough!",
+    "user_id": 2,
+    "post_id": 2
   },
   {
-      "comment_text": "Brah Brah whats goodie ? ",
-      "user_id": 3,
-      "post_id": 3
+    "comment_content": "Brah Brah whats goodie ? ",
+    "user_id": 3,
+    "post_id": 3
   }
 ]
