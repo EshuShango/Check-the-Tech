@@ -51,7 +51,7 @@ app.use(controllers);
 //? then tell if it needs an update and then do just that ?
 //?---------
 
-sequelize.sync({ force: false }).then(() => {
+sequelize.sync({ force: false}).then(() => {
   app.listen(PORT, () => console.log(`Now listening ${PORT}`));
 });
 

@@ -18,15 +18,17 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-handlebars": "^5.2.0",
+    "express-session": "^1.17.3",
     "mdb-cli": "^4.3.0",
     "mysql2": "^2.2.5",
-    "sequelize": "^6.3.5"
+    "sequelize": "^6.3.5",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
-    "prettier": "^2.1.2",
-    "eslint-config-prettier": "^6.15.0",
+    "@types/express-session": "^1.17.6",
     "eslint": "^7.12.1",
+    "eslint-config-prettier": "^6.15.0",
     "eslintrc": "^1.0.6",
-    "@types/express-session": "^1.17.6"
+    "prettier": "^2.1.2"
   }
 }

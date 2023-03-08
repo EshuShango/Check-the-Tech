@@ -1,134 +1,164 @@
-
-
 <!-- Button trigger modal -->
 
-  <div class="row">
-    <a class="btn btn-outline-dark btn-round mb-1 no-button
-              shadow-pop-bottom-left
-              data-mdb-ripple-color='dark' "
-               data-mdb-toggle='modal'
-      data-mdb-target='#exampleModal'
-              {{!-- data-mdb-toggle="modal" data-mdb-target="#staticBackdrop" --}}
-               href="" role="button">Create a Post</a>
-  </div>
+<div class="row">
+  <a
+    class="btn btn-outline-dark btn-round mb-1 no-button shadow-pop-bottom-left data-mdb-ripple-color='dark'"
+    data-mdb-toggle="modal"
+    data-mdb-target="#exampleModal"
+    data-mdb-toggle="modal"
+    data-mdb-target="#staticBackdrop"
+    href=""
+    role="button"
+  >Create a Post</a>
+</div>
 
+     <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+<!-- POST -->
+  {{#each posts as |post|}}
+<div style="border: 2px solid red">
 
-    <!-- Modal -->
-  <form class="formoutline"aria-label="Edit post">
+  <a href="/dashboard/edit/{{post.id}}">
+    {{!-- <label>
+      {{post.id}}
+    </label> --}}
+    <h1>
+      {{post.p_title}}
+
+    </h1>
+
+  </a>
+
+    <p>
+      {{post.p_content}}
+
+    </p>
+
+</div>
+  {{/each}}
+
+<!-- POST -->
+     <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+
+<!-- MODAL -->
+<form class="formoutline" id="saveBtn" aria-label="Edit post">
+  <div
+    class="modal fade"
+    id="exampleModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+    data-mdb-backdrop="static"
+    data-mdb-keyboard="false"
+  >
+
     <div
-      class='modal fade'
-      id='exampleModal'
-      tabindex='-1'
-      aria-labelledby='exampleModalLabel'
-      aria-hidden='true'
-      data-mdb-backdrop='static'
-      data-mdb-keyboard='false'
+      class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg"
     >
+      <div class="modal-content">
+        <div class="modal-header">
+          <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
 
-      <div
-        class='modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg'
-      >
-        <div class='modal-content'>
-          <div class='modal-header'>
-            <h5 class='modal-title' id='exampleModalLabel'>
-              Create a Post
-            </h5>
-            <button
-              type='button'
-              class='btn-close'
-              data-mdb-dismiss='modal'
-              aria-label='Close'
-            >
-            </button>
-          </div>
+          <!-- Modal TITLE within MODAL BEGIN-->
+          <h5 class="modal-title" id="exampleModalLabel">
+            Create a Post
+          </h5>
 
-          <!-- Modal BODY BEGIN-->
-          <div class='modal-body'>
+          <!-- Modal EXIT BTN within MODAL TITLE-->
+          <button
+            type="button"
+            class="btn-close"
+            data-mdb-dismiss="modal"
+            aria-label="Close"
+          >
+          </button>
 
-            {{!-- <form class='form-outline' > --}}
-            <div class="post-title row">
+        </div>
+        <!-- Modal TITLE within MODAL END-->
+
+        <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+
+        <!-- Modal BODY within MODAL BEGIN-->
+        <div class="modal-body">
+
+          {{! <form class='form-outline'> }}
+          <div class="post-title row">
 
             {{!-- <div class="col-6">
-                <h2 class="title"><a href='/api/dashboard/edit/{{post.id}}'>{{post.title}}</a></h2>
-            </div> --}}
-           
-              <a href='/api/dashboard/edit/{{post.id}}'>
-              <label class='form-label needs-validation' 
-              for='validationDefault01' >
-              
-              {{p_title}}
-              
+                <h2 class="title"><a href='/api/dashboard{{post.id}}'>{{post.title}}</a></h2>
+              </div> --}}
+
+            <a href="">
+              <label
+                class="form-label needs-validation"
+                {{! id="newPostTitle" }}
+                for="validationDefault01"
+              >
+
+                {{!-- {{p_title}} --}}
               </label>
-              </a>
-              <input
-                type='text'
-                id='formname'
-                placeholder="New Post Title" 
-                class='form-control 
-                form-control-lg'
-                data-mdb-showcounter="true" 
-                maxlength="20"
-                required
-              />
-
-              <div  style="border: 1px solid red ;"
-              {{!-- class='form-control form-control-lg topic form-helper' --}}
-               >
-             
-              <div class="" style="align-items: center ;">
-
-              <textarea style="max-width 25rem; width:29.2rem;"
-               placeholder="Write post content here..." 
-              {{!-- placeholder="Write your post content here..." 
-              class="crayons-textfield crayons-textfield--ghost crayons-article-form__body__field ff-monospace fs-l h-100" 
-              id='formsubject'  --}}
-              {{!-- data-gramm_editor="false"  --}}
-              {{!-- style="min-height: 25rem; max-width:fit-content" --}}
+            </a>
+            <input
+              type="text"
+              id="newPostTitle"
+              placeholder="New Post Title"
+              class="form-control form-control-lg"
+              data-mdb-showcounter="true"
+              maxlength="20"
               required
-              >
-              {{p_content}}
-              </textarea>
+            />
+
+            <div
+              style="border: 1px solid red ;"
+              {{! class='form-control form-control-lg topic form-helper' }}
+            >
+              <div class="" style="align-items: center ;">
+                <textarea
+                  id="newPostContent"
+                  class="form-control form-control-lg"
+                  placeholder="Write post content here..."
+                  required
+                  {{! /> }}
+                ></textarea>
+
               </div>
-              
-              </div>
-          
-          
-          <!-- Modal BODY END-->
+            </div>
+            {{!-- {{p_content}} --}}
+            {{!
+              placeholder="Write your post content here..." id='formsubject' }}
+            {{! data-gramm_editor="false"
+              }}
+            {{! style="min-height: 25rem; max-width:fit-content" }}
 
-          <div class='modal-footer mb-3 ' 
-          
-          >
+            <!-- Modal BODY within MODAL END-->
 
-            <button
-              type='button'
-              class='btn btn-secondary
-              no-button
-              '
-              data-mdb-dismiss='modal'
+            <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+
+            <!-- Modal Footer within MODAL BEGIN-->
+            <div class="modal-footer mb-3">
+
+              <button
+                type="button"
+                class="btn btn-secondary no-button"
+                data-mdb-dismiss="modal"
               >
-              Close
-            </button>
+                Close
+              </button>
 
-            <button 
-              id='create-group'
-              type='submit'
-              class='btn btn-primary no-button
-              shadow-pop-top-left
-              '
-              value="Save changes"
+              <button
+                type="submit"
+                class="btn btn-primary no-button shadow-pop-top-left"
+                value="Save changes"
               >
-              Save changes
-            </button>
+                Save changes
+              </button>
+              <!-- Modal Footer within MODAL END-->
+
+            </div>
 
           </div>
-
         </div>
       </div>
     </div>
- </form>
-  
   </div>
-
-
- 
-
+</form>
+<script src="/js/addPost.js"></script>

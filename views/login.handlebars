@@ -2,29 +2,17 @@
 <section class="container w-50 mt-5">
   <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
     <li class="nav-item" role="presentation">
-      <a
-        class="nav-link "
-        id="tab-login"
-        data-mdb-toggle="pill"
-        href="#pills-login"
-        role="tab"
-        aria-controls="pills-login"
-        aria-selected="true"
-      >Login</a>
+      <a class="nav-link " id="tab-login" data-mdb-toggle="pill" href="#pills-login" role="tab"
+        aria-controls="pills-login" aria-selected="true">Login</a>
     </li>
-    
+
   </ul>
   <!-- Pills navs -->
 
   <!-- Log In BELOW -->
   <!-- Log In BELOW -->
   <div class="tab-content">
-    <div
-      class="tab-pane fade show "
-      id="pills-login"
-      role="tabpanel"
-      aria-labelledby="tab-login"
-    >
+    <div class="tab-pane fade show " id="pills-login" role="tabpanel" aria-labelledby="tab-login">
       <form id="loginForm">
         <!-- Username input -->
         <div class="form-outline mb-4">
@@ -34,30 +22,29 @@
 
         <!-- Email input -->
         <div class="form-outline mb-4">
-          <input type="email" id="logEmail" class="form-control"  required />
+          <input type="email" id="logEmail" class="form-control" required />
           <label class="form-label" for="logEmail">Email</label>
         </div>
 
         <!-- Password input -->
         <div class="form-outline mb-4">
-          <input type="password" id="logPassword" class="form-control"  required/>
+          <input type="password" id="logPassword" class="form-control" required />
           <label class="form-label" for="logPassword">Password</label>
         </div>
 
         <!-- Submit button -->
-        <button
-          id="loginFormBtn"
-          type="button"
+        <button id="loginFormBtn" type="button"
           class="btn btn-outline-dark btn-block mb-3 no-button shadow-pop-bottom-right"
-          data-mdb-ripple-color="dark"
-        >Login</button>
+          data-mdb-ripple-color="dark">Login</button>
+
 
       </form>
     </div>
 
-   
+
   </div>
   <!-- Pills content -->
+      <a href='/signup' class='' style="color: black;">Don't have an account? Sign Up</a>
 </section>
 
 <script src="/js/logIn.js"></script>
