@@ -24,10 +24,10 @@ async function addPost(e) {
   // good to keep for info on error
   console.log(results);
 
-  if (response.ok) {
-    document.location.replace("/dashboard");
+  // if (response.ok) {
+  //   document.location.replace("/dashboard");
     
-  }
+  // }
 }
 
 saveBtn.addEventListener("submit", addPost);

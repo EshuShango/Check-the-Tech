@@ -1,6 +1,6 @@
 const express = require("express");
 const api = require("./api");
-const dashBoApi = require("./dashboard.js");
+// const dashBoApi = require("./api/dashboard.js");
 const { User, Post, Comment } = require("../models");
 const auth = require("../utils/auth");
 const { formatDate } = require("../utils/helpers");
@@ -8,7 +8,7 @@ const { formatDate } = require("../utils/helpers");
 const controller = express.Router();
 
 controller.use("/api", api);
-controller.use("/dashboard", dashBoApi);
+// controller.use("/dashboard", dashBoApi);
 
 controller
   .get("/", async (req, res) => {
@@ -34,31 +34,33 @@ controller
     });
   })
   
-  // .get("/dashboard", auth, async (req, res) => {
-  //   console.log("dashboard page");
+  .get("/dashboard", auth, async (req, res) => {
+    console.log("dashboard page");
 
-  //   let postData;
-  //   try {
-  //     postData = await Post.findAll({
-  //       include: [{ model: User }],
-  //       // where: {
-  //       //   user_id: req.session.user_id,
-  //       // },
-  //     });
-  //     //turns sequelize into plain js code
-  //     const posts = postData.map((post) => post.get({ plain: true }));
-  //     console.log(posts)
-  //     res.render("dashboard", {
-  //       posts,
-  //       logged_in: req.session.logged_in,
-  //     });
-  //   } catch (err) {
-  //     console.log(err.message);
-  //     res.status(500).json(err);
-  //   }
+    let postData;
+    try {
+      console.log('youo')
+      postData = await Post.findAll({
+        include: [{ model: User }],
+        // where: {
+        //   user_id: req.session.user_id,
+        //   id: req.session.id
+        // },
+      });
+      //turns sequelize into plain js code
+      const posts = postData.map((post) => post.get({ plain: true }));
+      console.log(posts)
+      res.render("dashboard", {
+        posts,
+        logged_in: req.session.logged_in,
+      });
+    } catch (err) {
+      console.log(err.message);
+      res.status(500).json(err);
+    }
 
-  //   // posts = posts.map((post) => (post.date_created = formatDate(post.date_created)));
-  // })
+    // posts = posts.map((post) => (post.date_created = formatDate(post.date_created)));
+  })
 
   // .get("/dashboard/edit/:id", async (req, res) => {
   //   try {

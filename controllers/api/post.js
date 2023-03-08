@@ -1,6 +1,7 @@
 const express = require("express");
 const { User, Post, Comment } = require("../../models");
 const auth = require("../../utils/auth");
+// const { v4: uuidv4 } = require('uuid');
 const formatDate = require("../../utils/helpers");
 
 const postApi = express.Router();
@@ -18,9 +19,18 @@ postApi.get("/:id", async (req, res) => {
 //CREATE
 postApi.post("/", async (req, res) => {
   try {
-    const newPost = await Post.create(req.body);
+
+    // let postId = uuidv4(); // ⇨ '1b9d6bcd-bbfd-4b2d-9b5d-ab8dfbbd4bed'
+
+    let postObj = {
+      id: req.body.Id,
+      p_title: req.body.p_title,
+      p_content: req.body.p_content      
+    }
+    const newPost = await Post.create(postObj);
     //you can do a res.json (instead of rendering) for creating data
     // res.json("post");
+    console.log(postObj);
     res.json(newPost);
   } catch (error) {
     res.json(error);
@@ -32,7 +42,7 @@ postApi.put("/:id", async (req, res) => {
     const updPost = await Post.update(req.body, {
       where: {
         user_id: req.session.user_id,
-        id: req.body.post_id
+        id: req.body.Id,
       },
     });
     res.json(updPost);

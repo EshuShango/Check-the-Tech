@@ -1,7 +1,7 @@
 const express = require("express");
-const { User, Post, Comment } = require("../models");
-const auth = require("../utils/auth");
-const formatDate = require("../utils/helpers");
+const { User, Post, Comment } = require("../../models");
+const auth = require("../../utils/auth");
+const formatDate = require("../../utils/helpers");
 
 const dashBoApi = express.Router()
 
